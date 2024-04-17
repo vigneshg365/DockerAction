@@ -16,6 +16,6 @@ jobs:
       run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker images
 
     - name : Docker Run
-      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker run my_first_image
+      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker run -d my_first_image
 
       
