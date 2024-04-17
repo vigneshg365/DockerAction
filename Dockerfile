@@ -13,11 +13,11 @@ WORKDIR /app
 # Clone the repository using username/password
 RUN git clone 'https://vigneshg365:Vickey$123@github.com/vigneshg365/DockerAction.git' /app
 
-RUN cd /app/DockerAction && mvn clean install
+RUN cd /app && mvn clean install
 
 EXPOSE 8080
 
 # Command to run the Java application
-CMD ["java", "-jar", "/app/DockerAction/target/docker.jar"]
+CMD ["java", "-jar", "/app/target/docker.jar"]
 
 # hit http:<ipaddress>:<port>/welcome
