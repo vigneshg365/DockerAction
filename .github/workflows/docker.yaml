@@ -8,7 +8,7 @@ jobs:
     runs-on: self-hosted
     steps:
     - name : Docker Build
-      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker build -t my_first_image .
+      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker build -t my_first_image /app/Dockerfile
 
     - name : Docker Images
       run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker images
