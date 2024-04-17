@@ -8,12 +8,18 @@ jobs:
     runs-on: self-hosted
     steps:
     - name : Docker Build
-      run : docker build -t docker_action Dockerfile
+      run : |
+        echo "Vickey\$123" | sudo -S su -c '
+        docker build -t docker_action Dockerfile
 
     - name : Docker Images
-      run : docker images
+      run : |
+         echo "Vickey\$123" | sudo -S su -c ' 
+         docker images
 
     - name : Docker Run
-      run : docker run -d docker_action
+      run : |
+        echo "Vickey\$123" | sudo -S su -c '
+        docker run -d docker_action
 
       
