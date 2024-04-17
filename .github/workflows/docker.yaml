@@ -8,18 +8,12 @@ jobs:
     runs-on: self-hosted
     steps:
     - name : Docker Build
-      run : |
-        echo "Vickey\$123" | sudo -S su -c '
-        docker build -t docker_action Dockerfile
+      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker build -t my_first_image .
 
     - name : Docker Images
-      run : |
-         echo "Vickey\$123" | sudo -S su -c ' 
-         docker images
+      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker images
 
     - name : Docker Run
-      run : |
-        echo "Vickey\$123" | sudo -S su -c '
-        docker run -d docker_action
+      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker run my_first_image
 
       
