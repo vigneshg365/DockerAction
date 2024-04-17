@@ -8,7 +8,9 @@ jobs:
     runs-on: self-hosted
     steps:
     - name : Docker Build
-      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker build -t my_first_image /app/Dockerfile
+      run : |
+        cd /home/vvdn/gitAction/git_repository/DockerAction/
+        echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker build -t my_first_image .
 
     - name : Docker Images
       run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker images
