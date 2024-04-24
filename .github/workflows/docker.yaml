@@ -13,7 +13,15 @@ jobs:
 
     - name : Docker Images
       run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker images
-
+      
+    - name: Manual Approval
+      if: github.event_name == 'workflow_dispatch'
+      uses: peaceiris/actions-approval@v2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        message: "Approve deployment"
+        request-to: ${{ github.actor }}
+        
     - name : Docker Run
       run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker run -d my_first_image
 
