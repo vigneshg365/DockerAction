@@ -14,13 +14,10 @@ jobs:
     - name : Docker Images
       run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker images
       
-    - name: Manual Approval
-      if: github.event_name == 'workflow_dispatch'
-      uses: peaceiris/actions-gh-pages@v4
+    - uses: trstringer/manual-approval@v1
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        message: "Approve deployment"
-        request-to: ${{ github.actor }}
+        secret: ${{ github.TOKEN }}
+        approvers: vigneshg365
         
     - name : Docker Run
       run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker run -d my_first_image
