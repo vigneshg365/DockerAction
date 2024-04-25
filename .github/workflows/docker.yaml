@@ -13,6 +13,10 @@ jobs:
 
     - name : Docker Images
       run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker images
+
+    - name: Pull Docker image
+      run: echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker pull ghcr.io/trstringer/manual-approval:1.9.0
+
       
     - uses: trstringer/manual-approval@v1
       with:
