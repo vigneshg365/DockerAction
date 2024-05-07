@@ -1,4 +1,6 @@
 # DockerAction
-Added Manual Approval only for Production environment
+Added Manual Approval only for Development & Production environment
 
-Approvers : vigneshg365
+Approvers : 
+Production : vigneshg365
+Development : SonaliSaran
