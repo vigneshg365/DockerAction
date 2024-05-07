@@ -1,0 +1,25 @@
+name: Run Spring Project Using Docker
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - name : Docker Build
+      run : |
+        cd /home/vvdn/gitAction/git_repository/DockerAction/
+        echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker build -t my_first_image .
+
+    - name : Docker Images
+      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker images
+
+    - uses: trstringer/manual-approval@v1
+      with:
+        secret: ${{ github.TOKEN }}
+        approvers: vigneshg365
+        
+    - name : Docker Run
+      run : echo  '${{ secrets.SUDO_PASSWORD }}'| sudo -S docker run -d my_first_image
+
+      
