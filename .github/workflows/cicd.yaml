@@ -38,6 +38,7 @@ jobs:
       name: JumpServer
       url: 'http://test.myapp.com'
     steps:
+      - uses: actions/checkout@v2
       - name: Deploy
        # run: echo I am deploying! 
         run: sh myscript.sh
@@ -50,6 +51,7 @@ jobs:
       name: Production
       url: 'http://www.myapp.com'
     steps:
+      - uses: actions/checkout@v2
       - name: Deploy
         run: echo I am deploying! 
     
