@@ -1,2 +1,2 @@
 # DockerAction
-Added Manual Approval Only For Production environment
+Added Manual Approval only for Production environment
