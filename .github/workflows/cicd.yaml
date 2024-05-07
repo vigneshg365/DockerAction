@@ -26,8 +26,7 @@ jobs:
       url: 'http://www.google.com'
     steps:
       - name: Deploy
-        #run: echo I am deploying! 
-        run: sh myscript.sh
+        run: echo I am deploying! 
     
   DeployStaging:
     name: Deploy to Staging 
@@ -39,7 +38,8 @@ jobs:
       url: 'http://test.myapp.com'
     steps:
       - name: Deploy
-        run: echo I am deploying! 
+       # run: echo I am deploying! 
+        run: sh myscript.sh
             
   DeployProd:
     name: Deploy to Production 
