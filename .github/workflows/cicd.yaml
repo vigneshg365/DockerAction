@@ -21,6 +21,11 @@ jobs:
           java-version: '8'
       - name: Build with Maven
         run: mvn clean install 
+      - name: Upload WAR artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-war-artifact
+          path: target/*.war
     
   DeployDevJumpServer:
     name: Deploy to Dev-Jump Server
