@@ -17,7 +17,7 @@ jobs:
     
   DeployDevJumpServer:
     name: Deploy to Dev-Jump Server
-    if: github.event_name == 'push'
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
     needs: [Build]
     runs-on: ubuntu-latest
     environment: 
